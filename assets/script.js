@@ -3,3 +3,5 @@
 
 // Array of To-dos
 var todos = ["Learn HTML", "Learn CSS", "Learn JavaScript"];
+
+console.log(todos);
