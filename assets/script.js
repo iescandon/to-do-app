@@ -11,13 +11,12 @@ var todos = ["Learn HTML", "Learn CSS", "Learn JavaScript"];
 function renderTodos() {
   todoList.textContent = "";
   todoCountSpan.textContent = todos.length;
+
   for (var i = 0; i < todos.length; i++) {
     var li = document.createElement("li");
     li.textContent = todos[i];
-    // li.setAttribute("data-index", i);
 
     var btn = document.createElement("button")
-    btn.setAttribute("class", "removeBtn");
     btn.textContent = "Complete";
     btn.setAttribute("data-index", i);
     btn.addEventListener("click", removeTodos)
@@ -30,7 +29,10 @@ function renderTodos() {
 function removeTodos() {
   var item = this;
   var index = item.getAttribute("data-index");
-  console.log(index);
+  // console.log(index);
+  todos.splice(index, 1)
+  // console.log(todos)
+  renderTodos()
 }
 
 todoForm.addEventListener("submit", function(event){
