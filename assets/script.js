@@ -4,6 +4,7 @@ var todoInput = document.querySelector("#todo-text");
 var todoForm = document.querySelector("#todo-form");
 var todoList = document.querySelector("#todo-list");
 var todoCountSpan = document.querySelector("#todo-count");
+var removeBtn = document.querySelector(".removeBtn");
 // Array of To-dos
 var todos = ["Learn HTML", "Learn CSS", "Learn JavaScript"];
 
@@ -13,8 +14,23 @@ function renderTodos() {
   for (var i = 0; i < todos.length; i++) {
     var li = document.createElement("li");
     li.textContent = todos[i];
+    // li.setAttribute("data-index", i);
+
+    var btn = document.createElement("button")
+    btn.setAttribute("class", "removeBtn");
+    btn.textContent = "Complete";
+    btn.setAttribute("data-index", i);
+    btn.addEventListener("click", removeTodos)
+
+    li.appendChild(btn)
     todoList.appendChild(li)
   }
+}
+
+function removeTodos() {
+  var item = this;
+  var index = item.getAttribute("data-index");
+  console.log(index);
 }
 
 todoForm.addEventListener("submit", function(event){
