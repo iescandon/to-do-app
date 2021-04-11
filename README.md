@@ -10,6 +10,3 @@ What we will be reviewing as we create our To Do app in this office hours:
 - Click and submit events
 - Local storage
 - Using data-attributes
-- Using objects
-- Fetch requests
-- Server-side API (JSON Placeholder)
