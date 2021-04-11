@@ -8,6 +8,19 @@ var removeBtn = document.querySelector(".removeBtn");
 // Array of To-dos
 var todos = ["Learn HTML", "Learn CSS", "Learn JavaScript"];
 
+function init(){
+var storedTodos = JSON.parse(localStorage.getItem("todos"));
+
+if (storedTodos !== null) {
+  todos = storedTodos;
+}
+  renderTodos();
+}
+
+function storeTodos(){
+  localStorage.setItem("todos", JSON.stringify(todos));
+}
+
 function renderTodos() {
   todoList.textContent = "";
   todoCountSpan.textContent = todos.length;
@@ -29,10 +42,9 @@ function renderTodos() {
 function removeTodos() {
   var item = this;
   var index = item.getAttribute("data-index");
-  // console.log(index);
-  todos.splice(index, 1)
-  // console.log(todos)
-  renderTodos()
+  todos.splice(index, 1);
+  storeTodos();
+  renderTodos();
 }
 
 todoForm.addEventListener("submit", function(event){
@@ -44,7 +56,8 @@ todoForm.addEventListener("submit", function(event){
   }
   todos.push(newTodo)
   todoInput.value = "";
+  storeTodos();
   renderTodos();
 });
 
-renderTodos();
+init();
