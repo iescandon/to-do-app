@@ -1,11 +1,11 @@
-// Get todo-text, todo-form, todo-list, todo-count from the document and store them into variables
+// Get todo-text, todo-form, todo-list, todo-count from the HTML document and store them into variables
 var todoInput = document.querySelector("#todo-text");
 var todoForm = document.querySelector("#todo-form");
 var todoList = document.querySelector("#todo-list");
 var todoCountSpan = document.querySelector("#todo-count");
 var removeBtn = document.querySelector(".removeBtn");
 
-// Array of To-dos, can be sent to an empty array as well
+// Array of todos, can be set to an empty array as well
 var todos = ["Learn HTML", "Learn CSS", "Learn JavaScript"];
 
 
